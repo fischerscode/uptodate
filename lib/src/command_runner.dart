@@ -1,4 +1,5 @@
 import 'package:args/command_runner.dart';
+import 'package:uptodate/src/command/version.dart';
 
 import 'command/check.dart';
 import 'command/github.dart';
@@ -11,6 +12,7 @@ class UpToDateCommandRunner extends CommandRunner<int> {
         ) {
     addCommand(CheckCommand());
     addCommand(GitHubCommand());
+    addCommand(VersionCommand());
     argParser.addOption(
       'file',
       abbr: 'f',

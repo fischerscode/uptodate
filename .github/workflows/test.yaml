@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v1
-      - run: dart pub get
-      - run: dart pub run build_runner build --delete-conflicting-outputs
-      - run: dart test
-      - run: dart run lib/uptodate.dart
+      - name: pub get
+        run: dart pub get
+      - name: check
+        run: dart run lib/uptodate.dart

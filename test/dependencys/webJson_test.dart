@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
-import 'package:uptodate/dependencies/dependency.dart';
+import 'package:uptodate/src/dependencies/dependency.dart';
 import 'package:version/version.dart';
 import 'webJson_test.mocks.dart';
 

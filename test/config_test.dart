@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
-import 'package:uptodate/config.dart';
-import 'package:uptodate/dependencies/dependency.dart';
+import 'package:uptodate/src/config.dart';
+import 'package:uptodate/src/dependencies/dependency.dart';
 import 'package:version/version.dart';
 
 main() {

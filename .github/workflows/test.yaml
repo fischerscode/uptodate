@@ -14,3 +14,5 @@ jobs:
         run: dart pub get
       - name: check
         run: dart run lib/uptodate.dart
+        env:
+          GITHUB_TOKEN: "${{ GITHUB_TOKEN }}"

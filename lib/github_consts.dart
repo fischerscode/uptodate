@@ -15,17 +15,11 @@ class GitHubConstants {
   }) =>
       Uri.parse(
           'https://api.github.com/repos/$repo/issues?filter=$filter&labels=${labels ?? ''}&per_page=100&state=${state ?? 'all'}');
+
   static final Uri Function({
     required String repo,
-    required String title,
-    required String body,
-    String? labels,
   }) issueCreateUrl = ({
     required repo,
-    required title,
-    required body,
-    labels,
   }) =>
-      Uri.parse(
-          'https://api.github.com/repos/$repo/issues?title=$title&title=$body&labels=${labels ?? ''}');
+      Uri.parse('https://api.github.com/repos/$repo/issues');
 }

@@ -15,7 +15,7 @@ class GitDependency extends WebJsonDependency {
           currentVersion: currentVersion,
           name: name,
           path: path ?? 'tag_name',
-          url: Uri.parse('https://api.github.com/repos/$repo/releases/latest'),
+          url: GitHubConstants.releaseUrl(repo),
           prefix: prefix ?? '',
         );
 

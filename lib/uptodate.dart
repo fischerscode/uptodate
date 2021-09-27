@@ -21,7 +21,6 @@ dependencies:
 ''';
 
   var config = Config.string(configString);
-  print(config.dependencies);
   var versionChecker = VersionChecker(config);
   var envVars = Platform.environment;
   IssueController(

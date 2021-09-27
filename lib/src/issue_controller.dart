@@ -1,8 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:uptodate/github_consts.dart';
-import 'package:uptodate/version_checker.dart';
+
+import 'github_consts.dart';
+import 'version_checker.dart';
 
 class IssueController {
   final String token;

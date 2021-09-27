@@ -3,10 +3,11 @@ library dependencies;
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:uptodate/github_consts.dart';
 import 'package:version/version.dart';
 import 'package:yaml/src/yaml_node.dart';
 import 'package:yamltools/yamltools.dart';
+
+import '../github_consts.dart';
 
 part 'web_dependency.dart';
 part 'webjson_dependency.dart';

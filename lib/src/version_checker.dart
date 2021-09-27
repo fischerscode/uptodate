@@ -1,5 +1,6 @@
-import 'package:uptodate/config.dart';
 import 'package:version/version.dart';
+
+import 'config.dart';
 
 class VersionChecker {
   final Config config;

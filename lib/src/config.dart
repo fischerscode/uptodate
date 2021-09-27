@@ -1,9 +1,10 @@
 import 'dart:io';
 
-import 'package:uptodate/dependencies/dependency.dart';
 import 'package:version/version.dart';
 import 'package:yaml/yaml.dart';
 import 'package:yamltools/yamltools.dart';
+
+import 'dependencies/dependency.dart';
 
 class Config {
   final YamlNode config;

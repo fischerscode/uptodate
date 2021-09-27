@@ -22,7 +22,7 @@ class VersionChecker {
 
   static void printUpdates(List<DependencyState> states) {
     for (var state in states) {
-      if (state.newestVersion > state.currentVersion) {
+      if (state.hasUpdate) {
         print(
             '${state.name}: ${state.printVersion(state.currentVersion)} -> ${state.printVersion(state.newestVersion)}');
       }
@@ -42,6 +42,8 @@ class DependencyState {
     required this.newestVersion,
     required String Function(Version version) versionPrinter,
   }) : _versionPrinter = versionPrinter;
+
+  bool get hasUpdate => newestVersion > currentVersion;
 
   String printVersion(Version version) {
     return _versionPrinter(version);

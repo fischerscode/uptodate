@@ -1,0 +1,16 @@
+name: Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  dart_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
+      - run: dart pub run build_runner build
+      - run: dart test
+      - run: dart run lib/uptodate.dart

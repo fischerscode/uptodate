@@ -52,14 +52,15 @@ class IssueController {
 
   Future<void> createIssue(DependencyState state) async {
     var response = await http.post(
-        GitHubConstants.issueCreateUrl(
-          repo: repo,
-          title: generateTitle(state),
-          body: generateTitle(state),
-        ),
-        headers: {
-          'authorization': 'Bearer $token',
-        });
+      GitHubConstants.issueCreateUrl(repo: repo),
+      headers: {
+        'authorization': 'Bearer $token',
+      },
+      body: {
+        'title': generateTitle(state),
+        'body': generateTitle(state),
+      },
+    );
     if (response.statusCode < 200 || response.statusCode >= 400) {
       throw '''Failed to create issues '${generateTitle(state)}': ${response.body}''';
     }

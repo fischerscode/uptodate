@@ -24,6 +24,7 @@ dependencies:
   var versionChecker = VersionChecker(config);
   var envVars = Platform.environment;
   print(envVars['GITHUB_REPOSITORY']);
+  print(envVars['GITHUB_TOKEN'] == null);
   IssueController(
           token: envVars['GITHUB_TOKEN']!, repo: envVars['GITHUB_REPOSITORY']!)
       .handleDependencies(await versionChecker.checkVersions());

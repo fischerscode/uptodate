@@ -56,10 +56,10 @@ class IssueController {
       headers: {
         'authorization': 'Bearer $token',
       },
-      body: {
+      body: jsonEncode(<String, String>{
         'title': generateTitle(state),
         'body': generateTitle(state),
-      },
+      }),
     );
     if (response.statusCode < 200 || response.statusCode >= 400) {
       throw '''Failed to create issues '${generateTitle(state)}': ${response.body}''';

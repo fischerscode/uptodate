@@ -13,7 +13,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: |
-            ${HOME}/.pub-cache
+            ${{ env.PUB_CACHE }}
             .dart_tool
             .packages
           key: ${{ runner.os }}-${{ hashFiles('pubspec.lock') }}

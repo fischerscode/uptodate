@@ -1,0 +1,18 @@
+name: "UpToDate"
+description: "Keep your repo 'UpToDate' by creating issues if a dependency updates."
+inputs:
+  config:
+    description: "The location of the config file."
+    required: true
+    default: ".uptodate.yaml"
+  token:
+    description: ""
+    required: false
+    default: ${{ github.token }}
+  repository:
+    description: ""
+    required: false
+    default: ${{ github.repository }}
+runs:
+  using: "docker"
+  image: "Dockerfile"

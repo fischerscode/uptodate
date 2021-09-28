@@ -19,7 +19,7 @@ dependencies:
     url: 'https://postman-echo.com/get?version=v1.2.4'
   - name: gitdependency
     type: git
-    repo: fischerscode/UpToDate
+    repo: fischerscode/up-to-date
     currentVersion: v1.2.3
     prefix: v
 ''';
@@ -46,9 +46,9 @@ dependencies:
       var dependency = config.dependencies[2] as GitDependency;
       expect(dependency.name, 'gitdependency');
       expect(dependency.currentVersion, Version(1, 2, 3));
-      expect(dependency.repo, 'fischerscode/UpToDate');
+      expect(dependency.repo, 'fischerscode/up-to-date');
       expect(dependency.url.toString(),
-          'https://api.github.com/repos/fischerscode/UpToDate/releases/latest');
+          'https://api.github.com/repos/fischerscode/up-to-date/releases/latest');
       expect(dependency.prefix, 'v');
       expect(dependency.path, 'tag_name');
     });

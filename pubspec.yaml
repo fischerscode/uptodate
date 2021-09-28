@@ -1,5 +1,5 @@
 name: uptodate
-description: Keep your repo 'UpToDate' by creating issues if a dependency updates.
+description: Keep your repo 'up-to-date' by creating issues if a dependency updates.
 version: 0.0.1
 # homepage: https://www.example.com
 

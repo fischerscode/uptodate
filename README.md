@@ -1,3 +1,3 @@
 ** WORK IN PROGRESS ** 
 
-Keep your repo 'UpToDate' by creating issues if a dependency updates.
+Keep your repo 'up-to-date' by creating issues if a dependency updates.

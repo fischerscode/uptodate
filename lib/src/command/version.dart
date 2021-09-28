@@ -7,13 +7,13 @@ class VersionCommand extends Command<int> {
   @override
   final name = 'version';
   @override
-  final description = 'Print UpToDate version.';
+  final description = 'Print uptodate version.';
 
   static final Version version = Version(0, 0, 1);
 
   @override
   Future<int> run() async {
-    print('UpToDate $version');
+    print('uptodate $version');
     return 0;
   }
 }

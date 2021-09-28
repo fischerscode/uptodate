@@ -1,4 +1,4 @@
-name: "UpToDate"
+name: "UpToDate Action"
 description: "Keep your repo 'UpToDate' by creating issues if a dependency updates."
 inputs:
   config:

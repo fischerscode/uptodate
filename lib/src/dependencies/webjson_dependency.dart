@@ -31,9 +31,13 @@ class WebJsonDependency extends WebDependency {
       String path, String prefix) {
     return (http.Response response) {
       var json = jsonDecode(response.body);
-      for (var key in path.split('.')) {
+      for (final key in path.split('.')) {
         if (json is Map<String, dynamic> && json.containsKey(key)) {
           json = json[key];
+        } else if (json is List &&
+            int.tryParse(key) != null &&
+            json.length > int.parse(key)) {
+          json = json[int.parse(key)];
         } else {
           throw 'No version found!';
         }

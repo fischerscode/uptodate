@@ -9,6 +9,6 @@ runs:
   using: "docker"
   image: "docker/Dockerfile"
   env:
-    GITHUB_REPOSITORY: ${{ env.GITHUB_REPOSITORY }}
-    GITHUB_TOKEN: ${{ secret.GITHUB_TOKEN }}
+    GITHUB_REPOSITORY: ${{ github.repository }}
+    GITHUB_TOKEN: ${{ github.token }}
     CONFIG_FILE: ${{ inputs.config }}

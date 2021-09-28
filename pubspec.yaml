@@ -1,7 +1,7 @@
 name: uptodate
 description: Keep your repo 'up-to-date' by creating issues if a dependency updates.
-version: 0.0.1
-# homepage: https://www.example.com
+version: 0.0.2
+repository: https://github.com/fischerscode/up-to-date
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

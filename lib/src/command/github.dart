@@ -19,7 +19,7 @@ class GitHubCommand extends Command<int> {
       abbr: 'r',
       help:
           'The repository. If missing, the environment variable \$GITHUB_REPOSITORY will be used',
-      valueHelp: 'fischerscode/up-to-date',
+      valueHelp: 'fischerscode/uptodate',
     );
     argParser.addOption(
       'token',

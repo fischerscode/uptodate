@@ -1,5 +1,5 @@
-name: "up-to-date Action"
-description: "Keep your repo 'up-to-date' by creating issues if a dependency updates."
+name: "uptodate Action"
+description: "Keep your repo 'uptodate' by creating issues if a dependency updates."
 branding:
   icon: bell
   color: green

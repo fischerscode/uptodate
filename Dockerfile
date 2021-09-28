@@ -12,6 +12,6 @@ RUN dart compile exe bin/uptodate.dart -o bin/uptodate
 FROM scratch
 COPY --from=build /runtime/ /
 COPY --from=build /app/bin/uptodate /app/bin/
-COPY entrypoint.sh /
+COPY docker/entrypoint.sh /
 
 ENTRYPOINT [ "/entrypoint.sh" ]

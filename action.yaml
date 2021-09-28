@@ -15,7 +15,7 @@ inputs:
     default: ${{ github.repository }}
 runs:
   using: "docker"
-  image: "docker/Dockerfile"
+  image: "Dockerfile"
   env:
     GITHUB_REPOSITORY: ${{ inputs.repository }}
     GITHUB_TOKEN: ${{ inputs.token }}

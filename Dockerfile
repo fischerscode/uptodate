@@ -12,6 +12,5 @@ RUN dart compile exe bin/uptodate.dart -o bin/uptodate
 FROM scratch
 COPY --from=build /runtime/ /
 COPY --from=build /app/bin/uptodate /app/bin/
-COPY docker/entrypoint.sh /
 
-ENTRYPOINT [ "/entrypoint.sh" ]
+ENTRYPOINT [ "/app/bin/uptodate github -f $INPUT_CONFIG -r $INPUT_REPOSITORY -t $INPUT_TOKEN" ]

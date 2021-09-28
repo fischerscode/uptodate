@@ -16,6 +16,8 @@ class VersionChecker {
         currentVersion: dependency.currentVersion,
         newestVersion: newestVersion,
         versionPrinter: (version) => dependency.printVersion(version),
+        issueTitle: dependency.buildIssueTitle(newestVersion),
+        issueBody: dependency.buildIssueBody(newestVersion),
       ));
     }
     return states;
@@ -37,11 +39,16 @@ class DependencyState {
   final Version newestVersion;
   final String Function(Version version) _versionPrinter;
 
+  final String issueTitle;
+  final String issueBody;
+
   DependencyState({
     required this.name,
     required this.currentVersion,
     required this.newestVersion,
     required String Function(Version version) versionPrinter,
+    required this.issueTitle,
+    required this.issueBody,
   }) : _versionPrinter = versionPrinter;
 
   bool get hasUpdate => newestVersion > currentVersion;

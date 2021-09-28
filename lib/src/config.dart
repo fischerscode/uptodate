@@ -20,6 +20,8 @@ class Config {
   }
 
   List<GenericDependency> get dependencies {
+    var defaultIssueTitle = config.getMapValue('defaultIssueTitle')?.asString();
+    var defaultIssueBody = config.getMapValue('defaultIssueBody')?.asString();
     return config
             .getMapValue('dependencies')
             ?.asList()
@@ -29,25 +31,36 @@ class Config {
               var name = dependency.getMapValue('name')?.asString();
               var currentVersion =
                   dependency.getMapValue('currentVersion')?.asString();
+              var issueTitle = dependency.getMapValue('issueTitle')?.asString();
+              var issueBody = dependency.getMapValue('issueBody')?.asString();
               if (type != null && name != null && currentVersion != null) {
                 switch (type) {
                   case WebDependency.identifier:
                     return WebDependency.parse(
-                        name: name,
-                        yaml: dependency,
-                        currentVersion: currentVersion);
+                      name: name,
+                      yaml: dependency,
+                      currentVersion: currentVersion,
+                      issueTitle: issueTitle ?? defaultIssueTitle,
+                      issueBody: issueBody ?? defaultIssueBody,
+                    );
 
                   case WebJsonDependency.identifier:
                     return WebJsonDependency.parse(
-                        name: name,
-                        yaml: dependency,
-                        currentVersion: currentVersion);
+                      name: name,
+                      yaml: dependency,
+                      currentVersion: currentVersion,
+                      issueTitle: issueTitle ?? defaultIssueTitle,
+                      issueBody: issueBody ?? defaultIssueBody,
+                    );
 
                   case GitDependency.identifier:
                     return GitDependency.parse(
-                        name: name,
-                        yaml: dependency,
-                        currentVersion: currentVersion);
+                      name: name,
+                      yaml: dependency,
+                      currentVersion: currentVersion,
+                      issueTitle: issueTitle ?? defaultIssueTitle,
+                      issueBody: issueBody ?? defaultIssueBody,
+                    );
                 }
               }
               return null;

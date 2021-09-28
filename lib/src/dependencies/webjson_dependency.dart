@@ -12,6 +12,8 @@ class WebJsonDependency extends WebDependency {
     required final Uri url,
     required this.path,
     required String prefix,
+    required String? issueTitle,
+    required String? issueBody,
   })   : prefix = prefix,
         super(
           name: name,
@@ -20,6 +22,8 @@ class WebJsonDependency extends WebDependency {
               : currentVersion),
           url: url,
           versionExtractor: jsonVersionExtractor(path, prefix),
+          issueTitle: issueTitle,
+          issueBody: issueBody,
         );
   static Version Function(http.Response response) jsonVersionExtractor(
       String path, String prefix) {
@@ -52,6 +56,8 @@ class WebJsonDependency extends WebDependency {
     required String name,
     required YamlNode yaml,
     required String currentVersion,
+    required String? issueTitle,
+    required String? issueBody,
   }) {
     var url = yaml.getMapValue('url')?.asString();
     var path = yaml.getMapValue('path')?.asString() ?? '';
@@ -63,6 +69,8 @@ class WebJsonDependency extends WebDependency {
         url: Uri.parse(url),
         path: path,
         prefix: prefix ?? '',
+        issueTitle: issueTitle,
+        issueBody: issueBody,
       );
     }
   }

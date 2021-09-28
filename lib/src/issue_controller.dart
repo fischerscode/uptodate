@@ -14,16 +14,13 @@ class IssueController {
     required this.repo,
   });
 
-  String generateTitle(DependencyState state) =>
-      'Update ${state.name} to ${state.printVersion(state.newestVersion)}';
-
   Future<void> handleDependencies(List<DependencyState> states) async {
     if (states.any((state) => state.hasUpdate)) {
       var existingIssues = await getIssues();
       for (var state in states) {
         if (state.hasUpdate) {
           var issue = existingIssues
-              .where((issue) => issue.title == generateTitle(state))
+              .where((issue) => issue.title == state.issueTitle)
               .firstOrNull();
           if (issue == null) {
             await createIssue(state);
@@ -52,21 +49,20 @@ class IssueController {
   }
 
   Future<void> createIssue(DependencyState state) async {
-    var title = generateTitle(state);
     var response = await http.post(
       GitHubConstants.issueCreateUrl(repo: repo),
       headers: {
         'authorization': 'Bearer $token',
       },
       body: jsonEncode(<String, String>{
-        'title': title,
-        'body': generateTitle(state),
+        'title': state.issueTitle,
+        'body': state.issueBody,
       }),
     );
     if (response.statusCode < 200 || response.statusCode >= 400) {
-      throw '''Failed to create issues '${generateTitle(state)}': ${response.body}''';
+      throw '''Failed to create issues '${state.issueTitle}': ${response.body}''';
     } else {
-      print('Created issue: $title');
+      print('Created issue: ${state.issueTitle}');
     }
   }
 }

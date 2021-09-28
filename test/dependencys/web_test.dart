@@ -13,6 +13,8 @@ void main() {
       name: 'testDependency',
       currentVersion: Version(1, 0, 0),
       url: Uri.parse('http://example.com'),
+      issueTitle: '\$name: \$currentVersion -> \$newestVersion',
+      issueBody: '\$name: \$currentVersion -> \$newestVersion',
     );
     test('test Success', () async {
       final client = MockClient();
@@ -23,6 +25,10 @@ void main() {
       expect(await dependency.newestVersion(client: client),
           TypeMatcher<Version>());
       expect(await dependency.newestVersion(client: client), Version(1, 5, 6));
+      expect(dependency.buildIssueTitle(Version(1, 5, 6)),
+          'testDependency: 1.0.0 -> 1.5.6');
+      expect(dependency.buildIssueBody(Version(1, 5, 6)),
+          'testDependency: 1.0.0 -> 1.5.6');
       verify(client.get(any)).called(2);
     });
     test('test Failure', () async {

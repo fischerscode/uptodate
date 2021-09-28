@@ -13,7 +13,13 @@ class WebDependency extends GenericDependency {
     required Version currentVersion,
     required this.url,
     this.versionExtractor = defaultVersionExtractor,
-  }) : _currentVersion = currentVersion;
+    required String? issueTitle,
+    required String? issueBody,
+  })   : _currentVersion = currentVersion,
+        super(
+          issueTitle: issueTitle,
+          issueBody: issueBody,
+        );
 
   static Version defaultVersionExtractor(http.Response response) =>
       Version.parse(response.body);
@@ -41,13 +47,18 @@ class WebDependency extends GenericDependency {
     required String name,
     required YamlNode yaml,
     required String currentVersion,
+    required String? issueTitle,
+    required String? issueBody,
   }) {
     var url = yaml.getMapValue('url')?.asString();
     if (url != null && Uri.tryParse(url) != null) {
       return WebDependency(
-          name: name,
-          currentVersion: Version.parse(currentVersion),
-          url: Uri.parse(url));
+        name: name,
+        currentVersion: Version.parse(currentVersion),
+        url: Uri.parse(url),
+        issueTitle: issueTitle,
+        issueBody: issueBody,
+      );
     }
   }
 }

@@ -15,6 +15,7 @@ part 'web_dependency.dart';
 part 'webjson_dependency.dart';
 part 'webyaml_dependency.dart';
 part 'git_dependency.dart';
+part 'helm_dependency.dart';
 
 abstract class GenericDependency {
   GenericDependency({

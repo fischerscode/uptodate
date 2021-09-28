@@ -5,10 +5,18 @@ inputs:
     description: "The location of the config file."
     required: true
     default: ".uptodate.yaml"
+  token:
+    description: ""
+    required: false
+    default: ${{ github.token }}
+  repository:
+    description: ""
+    required: false
+    default: ${{ github.repository }}
 runs:
   using: "docker"
   image: "docker/Dockerfile"
   env:
-    GITHUB_REPOSITORY: ${{ github.repository }}
-    GITHUB_TOKEN: ${{ github.token }}
+    GITHUB_REPOSITORY: ${{ inputs.repository }}
+    GITHUB_TOKEN: ${{ inputs.token }}
     CONFIG_FILE: ${{ inputs.config }}

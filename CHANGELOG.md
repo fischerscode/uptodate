@@ -1,12 +1,18 @@
-## 0.1.0
+## v0.1.1
+
+- add WebYamlDependency
+- WebJsonDependency: allow number in path
+- add HelmDependency
+
+## v0.1.0
 
 - add issueTitle and issueBody
 - Rename action to uptodate
 
-## 0.0.2
+## v0.0.2
 
 - Rename action to up-to-date
 
-## 0.0.1
+## v0.0.1
 
 - Initial version

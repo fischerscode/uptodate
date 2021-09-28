@@ -1,4 +1,4 @@
-FROM dart:stable as build
+FROM dart:2-sdk as build
 
 WORKDIR /app
 

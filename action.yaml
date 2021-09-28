@@ -1,5 +1,8 @@
 name: "UpToDate Action"
 description: "Keep your repo 'UpToDate' by creating issues if a dependency updates."
+branding:
+  icon: bell
+  color: green
 inputs:
   config:
     description: "The location of the config file."

@@ -16,7 +16,7 @@ jobs:
             ${{ env.PUB_CACHE }}
             .dart_tool
             .packages
-          key: ${{ runner.os }}-${{ hashFiles('pubspec.lock') }}
+          key: ${{ runner.os }}-dart-${{ hashFiles('pubspec.lock') }}
       - uses: dart-lang/setup-dart@v1
       - run: dart pub get
       - run: dart test

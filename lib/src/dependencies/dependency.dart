@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:version/version.dart';
 import 'package:yaml/src/yaml_node.dart';
+import 'package:yaml/yaml.dart';
 import 'package:yamltools/yamltools.dart';
 
 import '../github_consts.dart';
@@ -12,6 +13,7 @@ import '../tools/substitute.dart';
 
 part 'web_dependency.dart';
 part 'webjson_dependency.dart';
+part 'webyaml_dependency.dart';
 part 'git_dependency.dart';
 
 abstract class GenericDependency {

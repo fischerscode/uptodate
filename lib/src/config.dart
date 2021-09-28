@@ -53,6 +53,15 @@ class Config {
                       issueBody: issueBody ?? defaultIssueBody,
                     );
 
+                  case WebYamlDependency.identifier:
+                    return WebYamlDependency.parse(
+                      name: name,
+                      yaml: dependency,
+                      currentVersion: currentVersion,
+                      issueTitle: issueTitle ?? defaultIssueTitle,
+                      issueBody: issueBody ?? defaultIssueBody,
+                    );
+
                   case GitDependency.identifier:
                     return GitDependency.parse(
                       name: name,

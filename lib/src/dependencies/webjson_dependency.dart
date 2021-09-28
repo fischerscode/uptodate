@@ -14,14 +14,16 @@ class WebJsonDependency extends WebDependency {
     required String prefix,
     required String? issueTitle,
     required String? issueBody,
-  })   : prefix = prefix,
+    Version Function(http.Response)? versionExtractor,
+  })  : prefix = prefix,
         super(
           name: name,
           currentVersion: Version.parse(currentVersion.startsWith(prefix)
               ? currentVersion.substring(prefix.length)
               : currentVersion),
           url: url,
-          versionExtractor: jsonVersionExtractor(path, prefix),
+          versionExtractor:
+              versionExtractor ?? jsonVersionExtractor(path, prefix),
           issueTitle: issueTitle,
           issueBody: issueBody,
         );

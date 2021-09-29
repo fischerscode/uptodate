@@ -34,7 +34,7 @@ on:
     - cron: "0 0 * * *"
 
 jobs:
-  tags:
+  uptodate:
     runs-on: ubuntu-latest
     steps:
       # You have to check out your repo first.

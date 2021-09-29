@@ -95,6 +95,9 @@ In `defaultIssueTitle` and `defaultIssueBody` the following variables are allowe
 - `$currentVersion`: the current version of the dependency
 - `$latestVersion`: the latest available version
 
+Using `issueTitle` every dependency can be override `defaultIssueTitle`.
+Using `issueBody` every dependency can be override `defaultIssueBody`.
+
 ## Dependency types
 There are multiple dependency types.
 

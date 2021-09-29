@@ -56,6 +56,9 @@ class GitHubDependency extends GenericDependency {
 
   @override
   Future<Version> latestVersion({http.Client? client}) async {
+    final regexp = RegExp('^$prefix'
+        r'([\d.]+)(-([0-9A-Za-z\-.]+))?(\+([0-9A-Za-z\-.]+))?$');
+
     var page = 1;
     while (true) {
       final response = await WebDependency._get(client: client)((isTag
@@ -76,10 +79,9 @@ class GitHubDependency extends GenericDependency {
         for (var item in json) {
           var version = WebJsonDependency.jsonPathResolver(item, path);
 
-          if (item['prerelease'] == false && item['draft'] == false) {
-            if (RegExp('^$prefix'
-                    r'([\d.]+)(-([0-9A-Za-z\-.]+))?(\+([0-9A-Za-z\-.]+))?$')
-                .hasMatch(version)) {
+          if (isTag ||
+              (item['prerelease'] == false && item['draft'] == false)) {
+            if (regexp.hasMatch(version)) {
               return Version.parse(version.substring(prefix.length));
             }
           }

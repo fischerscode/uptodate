@@ -78,7 +78,7 @@ Run "uptodate help <command>" for more information about a command.
 ```
 
 # Configuration
-uptodate is configured using a [single file](#config-file) where all the [dependencies]() and their currently used versions are stored in.
+Uptodate is configured using a [single file](#config-file) where all the [dependencies]() and their currently used versions are stored in.
 
 ## Config file
 ```yaml

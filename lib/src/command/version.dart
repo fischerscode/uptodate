@@ -9,7 +9,7 @@ class VersionCommand extends Command<int> {
   @override
   final description = 'Print uptodate version.';
 
-  static final Version version = Version(0, 1, 1);
+  static final Version version = Version(0, 2, 0);
 
   @override
   Future<int> run() async {

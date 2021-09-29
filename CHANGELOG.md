@@ -1,3 +1,8 @@
+## v0.2.0
+
+- rename git dependency to github
+- rename newestVersion to latestVersion
+
 ## v0.1.1
 
 - add WebYamlDependency

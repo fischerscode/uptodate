@@ -82,7 +82,10 @@ class GitHubDependency extends GenericDependency {
           if (isTag ||
               (item['prerelease'] == false && item['draft'] == false)) {
             if (regexp.hasMatch(version)) {
-              return Version.parse(version.substring(prefix.length));
+              var result = Version.parse(version.substring(prefix.length));
+              if (!result.isPreRelease) {
+                return result;
+              }
             }
           }
         }

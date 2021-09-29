@@ -1,3 +1,7 @@
+## v0.3.1
+
+GitHubDependency: semantic prereleases are no longe selected.
+
 ## v0.3.0
 
 - GitHubDependency:

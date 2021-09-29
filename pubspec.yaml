@@ -11,7 +11,7 @@ dependencies:
   http: ^0.13.3
   version: ^2.0.0
   yaml: ^3.1.0
-  yamltools: ^1.0.0
+  yamltools: ^1.1.1
 
 dev_dependencies:
   build_runner: ^2.1.2

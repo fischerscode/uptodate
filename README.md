@@ -30,9 +30,8 @@ This action helps you to keep your repository up to date, by creating issues as 
 name: uptodate
 
 on:
-  release:
-    types:
-      - "created"
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   tags:

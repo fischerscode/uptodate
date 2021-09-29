@@ -9,7 +9,7 @@ inputs:
     required: true
     default: ".uptodate.yaml"
   token:
-    description: ""
+    description: "The token used for creating issues."
     required: false
     default: ${{ github.token }}
   repository:

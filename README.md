@@ -18,7 +18,7 @@ You can use Updater either as a [command line tool](#tagger-as-a-command-line-to
     - [Json web dependency](#json-web-dependency)
     - [Yaml web dependency](#yaml-web-dependency)
     - [GitHub dependency](#github-dependency)
-    - [helm dependency](#helm-dependency)
+    - [Helm dependency](#helm-dependency)
 
 # Updater V0.2 Action
 This action helps you to keep your repository up to date, by creating issues as soon as your dependencies changed.
@@ -101,7 +101,7 @@ There are multiple dependency types.
 [Json web dependency](#json-web-dependency)
 [Yaml web dependency](#yaml-web-dependency)
 [GitHub dependency](#github-dependency)
-[helm dependency](#helm-dependency)
+[Helm dependency](#helm-dependency)
 
 ### Web dependency
 An url gets called to receive the latest version of the dependency.
@@ -152,7 +152,7 @@ dependencies:
                                    # (v1.2.3 instead of 1.2.3)
                                    # Defaults to ''
 ```
-### helm dependency
+### Helm dependency
 Uses a Helm repository to receive the latest version.
 The version is gathered from by the yaml path.
 ```yaml

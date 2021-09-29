@@ -5,7 +5,7 @@ import 'package:yamltools/yamltools.dart';
 import 'package:test/test.dart';
 import 'package:yaml/yaml.dart';
 
-main() {
+void main() {
   test('Test version', () async {
     var pubspec = await File('pubspec.yaml').readAsString();
     var version = loadYamlNode(pubspec).getMapValue('version')?.asString();

@@ -3,7 +3,7 @@ import 'package:uptodate/src/config.dart';
 import 'package:uptodate/src/dependencies/dependency.dart';
 import 'package:version/version.dart';
 
-main() {
+void main() {
   group('Test Config', () {
     var configString = '''
 dependencies:

@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:version/version.dart';
 import 'package:yaml/yaml.dart';
 import 'package:yamltools/yamltools.dart';
 

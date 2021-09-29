@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:args/command_runner.dart';
 import 'package:version/version.dart';
 
@@ -13,7 +11,7 @@ class VersionCommand extends Command<int> {
 
   @override
   Future<int> run() async {
-    print('uptodate $version');
+    print('Uptodate $version');
     return 0;
   }
 }

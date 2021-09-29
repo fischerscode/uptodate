@@ -2,7 +2,7 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 import 'package:uptodate/src/tools/substitute.dart';
 
-main() {
+void main() {
   test('test substitution', () {
     expect('hello \$name!'.substitute('name', 'octocat'), 'hello octocat!');
     expect('hello \\\$name!'.substitute('name', 'octocat'), 'hello \$name!');

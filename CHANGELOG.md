@@ -1,7 +1,8 @@
 ## v0.2.0
 
-- rename git dependency to github
-- rename newestVersion to latestVersion
+- (breaking change) rename git dependency to github
+- (breaking change) rename newestVersion to latestVersion
+- add README
 
 ## v0.1.1
 

@@ -14,22 +14,22 @@ import '../tools/substitute.dart';
 part 'web_dependency.dart';
 part 'webjson_dependency.dart';
 part 'webyaml_dependency.dart';
-part 'git_dependency.dart';
+part 'github_dependency.dart';
 part 'helm_dependency.dart';
 
 abstract class GenericDependency {
   GenericDependency({
     required String? issueTitle,
     required String? issueBody,
-  })   : issueTitle = issueTitle ?? 'Update \$name to \$newestVersion',
+  })   : issueTitle = issueTitle ?? 'Update \$name to \$latestVersion',
         issueBody = issueBody ??
-            'Update \$name from \$currentVersion to \$newestVersion';
+            'Update \$name from \$currentVersion to \$latestVersion';
 
   /// The version of the installed/used dependency.
   Version get currentVersion;
 
-  /// Get the newest version available.
-  Future<Version> newestVersion();
+  /// Get the latest version available.
+  Future<Version> latestVersion();
 
   final String issueTitle;
 
@@ -43,14 +43,14 @@ abstract class GenericDependency {
   /// The name of the dependency.
   String get name;
 
-  String buildIssueTitle(Version newestVersion) =>
-      substitute(issueTitle, newestVersion);
+  String buildIssueTitle(Version latestVersion) =>
+      substitute(issueTitle, latestVersion);
 
-  String buildIssueBody(Version newestVersion) =>
-      substitute(issueBody, newestVersion);
+  String buildIssueBody(Version latestVersion) =>
+      substitute(issueBody, latestVersion);
 
-  String substitute(String text, Version newestVersion) => text
+  String substitute(String text, Version latestVersion) => text
       .substitute('name', name)
-      .substitute('newestVersion', printVersion(newestVersion))
+      .substitute('latestVersion', printVersion(latestVersion))
       .substitute('currentVersion', printVersion(currentVersion));
 }

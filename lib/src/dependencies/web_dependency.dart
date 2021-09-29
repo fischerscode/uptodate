@@ -28,7 +28,7 @@ class WebDependency extends GenericDependency {
   Version get currentVersion => _currentVersion;
 
   @override
-  Future<Version> newestVersion({http.Client? client}) async {
+  Future<Version> latestVersion({http.Client? client}) async {
     final response = await _get(client: client)(url);
     if (response.statusCode < 200 || response.statusCode >= 400) {
       throw Exception('Invalid response: ${response.statusCode}');

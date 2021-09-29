@@ -10,14 +10,14 @@ class VersionChecker {
   Future<List<DependencyState>> checkVersions() async {
     var states = <DependencyState>[];
     for (var dependency in config.dependencies) {
-      var newestVersion = await dependency.newestVersion();
+      var latestVersion = await dependency.latestVersion();
       states.add(DependencyState(
         name: dependency.name,
         currentVersion: dependency.currentVersion,
-        newestVersion: newestVersion,
+        latestVersion: latestVersion,
         versionPrinter: (version) => dependency.printVersion(version),
-        issueTitle: dependency.buildIssueTitle(newestVersion),
-        issueBody: dependency.buildIssueBody(newestVersion),
+        issueTitle: dependency.buildIssueTitle(latestVersion),
+        issueBody: dependency.buildIssueBody(latestVersion),
       ));
     }
     return states;
@@ -27,7 +27,7 @@ class VersionChecker {
     for (var state in states) {
       if (state.hasUpdate) {
         print(
-            '${state.name}: ${state.printVersion(state.currentVersion)} -> ${state.printVersion(state.newestVersion)}');
+            '${state.name}: ${state.printVersion(state.currentVersion)} -> ${state.printVersion(state.latestVersion)}');
       }
     }
   }
@@ -36,7 +36,7 @@ class VersionChecker {
 class DependencyState {
   final String name;
   final Version currentVersion;
-  final Version newestVersion;
+  final Version latestVersion;
   final String Function(Version version) _versionPrinter;
 
   final String issueTitle;
@@ -45,13 +45,13 @@ class DependencyState {
   DependencyState({
     required this.name,
     required this.currentVersion,
-    required this.newestVersion,
+    required this.latestVersion,
     required String Function(Version version) versionPrinter,
     required this.issueTitle,
     required this.issueBody,
   }) : _versionPrinter = versionPrinter;
 
-  bool get hasUpdate => newestVersion > currentVersion;
+  bool get hasUpdate => latestVersion > currentVersion;
 
   String printVersion(Version version) {
     return _versionPrinter(version);

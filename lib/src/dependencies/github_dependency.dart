@@ -1,11 +1,11 @@
 part of dependencies;
 
-class GitDependency extends WebJsonDependency {
-  static const String identifier = 'git';
+class GitHubDependency extends WebJsonDependency {
+  static const String identifier = 'github';
 
   final String repo;
 
-  GitDependency({
+  GitHubDependency({
     required String name,
     required String currentVersion,
     required this.repo,
@@ -23,7 +23,7 @@ class GitDependency extends WebJsonDependency {
           issueBody: issueBody,
         );
 
-  static GitDependency? parse({
+  static GitHubDependency? parse({
     required String name,
     required YamlNode yaml,
     required String currentVersion,
@@ -34,7 +34,7 @@ class GitDependency extends WebJsonDependency {
     var path = yaml.getMapValue('path')?.asString();
     var prefix = yaml.getMapValue('prefix')?.asString();
     if (repo != null) {
-      return GitDependency(
+      return GitHubDependency(
         name: name,
         currentVersion: currentVersion,
         repo: repo,

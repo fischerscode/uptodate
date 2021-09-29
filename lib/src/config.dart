@@ -62,8 +62,8 @@ class Config {
                       issueBody: issueBody ?? defaultIssueBody,
                     );
 
-                  case GitDependency.identifier:
-                    return GitDependency.parse(
+                  case GitHubDependency.identifier:
+                    return GitHubDependency.parse(
                       name: name,
                       yaml: dependency,
                       currentVersion: currentVersion,

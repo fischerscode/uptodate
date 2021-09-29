@@ -17,8 +17,8 @@ dependencies:
     currentVersion: v1.2.3
     prefix: v
     url: 'https://postman-echo.com/get?version=v1.2.4'
-  - name: gitdependency
-    type: git
+  - name: githubdependency
+    type: github
     repo: fischerscode/uptodate
     currentVersion: v1.2.3
     prefix: v
@@ -41,10 +41,10 @@ dependencies:
       expect(dependency.prefix, 'v');
       expect(dependency.path, 'args.version');
     });
-    test('Test git', () {
-      expect(config.dependencies[2], TypeMatcher<GitDependency>());
-      var dependency = config.dependencies[2] as GitDependency;
-      expect(dependency.name, 'gitdependency');
+    test('Test github', () {
+      expect(config.dependencies[2], TypeMatcher<GitHubDependency>());
+      var dependency = config.dependencies[2] as GitHubDependency;
+      expect(dependency.name, 'githubdependency');
       expect(dependency.currentVersion, Version(1, 2, 3));
       expect(dependency.repo, 'fischerscode/uptodate');
       expect(dependency.url.toString(),

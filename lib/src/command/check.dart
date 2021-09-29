@@ -42,7 +42,7 @@ class CheckCommand extends Command<int> {
                       'name': state.name,
                       'currentVersion':
                           state.printVersion(state.currentVersion),
-                      'newestVersion': state.printVersion(state.newestVersion),
+                      'latestVersion': state.printVersion(state.latestVersion),
                     })
                 .toList(),
           ),

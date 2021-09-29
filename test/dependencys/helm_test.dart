@@ -12,8 +12,8 @@ void main() {
     final dependency = HelmDependency(
       name: 'testDependency',
       currentVersion: '1.2.3',
-      issueTitle: '\$name: \$currentVersion -> \$newestVersion',
-      issueBody: '\$name: \$currentVersion -> \$newestVersion',
+      issueTitle: '\$name: \$currentVersion -> \$latestVersion',
+      issueBody: '\$name: \$currentVersion -> \$latestVersion',
       repo: 'http://example.com/helmCharts/',
       chart: 'testchart',
     );
@@ -27,8 +27,8 @@ entries:
    - version: 1.2.3''', 200));
 
     expect(
-        await dependency.newestVersion(client: client), TypeMatcher<Version>());
-    expect(await dependency.newestVersion(client: client), Version(1, 2, 4));
+        await dependency.latestVersion(client: client), TypeMatcher<Version>());
+    expect(await dependency.latestVersion(client: client), Version(1, 2, 4));
     verify(client.get(any)).called(2);
     expect(dependency.buildIssueTitle(Version(1, 2, 4)),
         'testDependency: 1.2.3 -> 1.2.4');

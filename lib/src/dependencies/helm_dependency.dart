@@ -19,7 +19,7 @@ class HelmDependency extends WebYamlDependency {
           currentVersion: currentVersion,
           name: name,
           path: path ?? 'entries.$chart.0.version',
-          url: GitHubConstants.releaseUrl(repo),
+          url: Uri.parse('$repo${repo.endsWith('/') ? '' : '/'}index.yaml'),
           prefix: prefix ?? '',
           issueTitle: issueTitle,
           issueBody: issueBody,

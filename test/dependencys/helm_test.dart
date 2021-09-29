@@ -34,5 +34,7 @@ entries:
         'testDependency: 1.2.3 -> 1.2.4');
     expect(dependency.buildIssueBody(Version(1, 2, 4)),
         'testDependency: 1.2.3 -> 1.2.4');
+    expect(
+        dependency.url.toString(), 'http://example.com/helmCharts/index.yaml');
   });
 }

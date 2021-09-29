@@ -1,3 +1,7 @@
+## v0.2.1
+
+- fix helm
+
 ## v0.2.0
 
 - (breaking change) rename `git` dependency to `github`

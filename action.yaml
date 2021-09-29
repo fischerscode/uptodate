@@ -1,4 +1,4 @@
-name: "uptodate Action"
+name: "uptodate - Keep your repository up to date."
 description: "Keep your repo 'uptodate' by creating issues if a dependency updates."
 branding:
   icon: bell

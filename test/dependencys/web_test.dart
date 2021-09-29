@@ -11,7 +11,7 @@ void main() {
   group('test WebDependency', () {
     final dependency = WebDependency(
       name: 'testDependency',
-      currentVersion: Version(1, 0, 0),
+      currentVersion: '1.0.0',
       url: Uri.parse('http://example.com'),
       issueTitle: '\$name: \$currentVersion -> \$latestVersion',
       issueBody: '\$name: \$currentVersion -> \$latestVersion',

@@ -4,7 +4,6 @@ class WebJsonDependency extends WebDependency {
   static const String identifier = 'webjson';
 
   final String path;
-  final String prefix;
 
   WebJsonDependency({
     required final String name,
@@ -15,47 +14,46 @@ class WebJsonDependency extends WebDependency {
     required String? issueTitle,
     required String? issueBody,
     Version Function(http.Response)? versionExtractor,
-  })  : prefix = prefix,
-        super(
+  }) : super(
           name: name,
-          currentVersion: Version.parse(currentVersion.startsWith(prefix)
-              ? currentVersion.substring(prefix.length)
-              : currentVersion),
+          currentVersion: currentVersion,
           url: url,
           versionExtractor:
               versionExtractor ?? jsonVersionExtractor(path, prefix),
           issueTitle: issueTitle,
           issueBody: issueBody,
+          prefix: prefix,
         );
   static Version Function(http.Response response) jsonVersionExtractor(
       String path, String prefix) {
     return (http.Response response) {
       var json = jsonDecode(response.body);
-      for (final key in path.split('.')) {
-        if (json is Map<String, dynamic> && json.containsKey(key)) {
-          json = json[key];
-        } else if (json is List &&
-            int.tryParse(key) != null &&
-            json.length > int.parse(key)) {
-          json = json[int.parse(key)];
-        } else {
-          throw 'No version found!';
-        }
+
+      var version = jsonPathResolver(json, path);
+      if (version.startsWith(prefix)) {
+        version = version.substring(prefix.length);
       }
-      if (json is String) {
-        if (json.startsWith(prefix)) {
-          json = json.substring(prefix.length);
-        }
-        return Version.parse(json);
-      } else {
-        throw 'No version found!';
-      }
+      return Version.parse(version);
     };
   }
 
-  @override
-  String printVersion(Version version) {
-    return '$prefix${super.printVersion(version)}';
+  static String jsonPathResolver(dynamic json, String path) {
+    for (final key in path.split('.')) {
+      if (json is Map<String, dynamic> && json.containsKey(key)) {
+        json = json[key];
+      } else if (json is List &&
+          int.tryParse(key) != null &&
+          json.length > int.parse(key)) {
+        json = json[int.parse(key)];
+      } else {
+        throw 'No version found!';
+      }
+    }
+    if (json is String) {
+      return json;
+    } else {
+      throw 'No version found!';
+    }
   }
 
   static GenericDependency? parse({

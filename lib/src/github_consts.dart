@@ -1,6 +1,8 @@
 class GitHubConstants {
-  static final Uri Function(String repo) releaseUrl =
-      (repo) => Uri.parse('https://api.github.com/repos/$repo/releases/latest');
+  static final Uri Function(String repo, int page) releaseUrl = (repo, page) =>
+      Uri.parse('https://api.github.com/repos/$repo/releases?page=$page');
+  static final Uri Function(String repo, int page) tagUrl = (repo, page) =>
+      Uri.parse('https://api.github.com/repos/$repo/tags?page=$page');
 
   static final Uri Function({
     required String repo,

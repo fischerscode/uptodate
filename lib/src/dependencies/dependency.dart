@@ -21,12 +21,18 @@ abstract class GenericDependency {
   GenericDependency({
     required String? issueTitle,
     required String? issueBody,
+    final String? prefix,
+    required final String currentVersion,
   })   : issueTitle = issueTitle ?? 'Update \$name to \$latestVersion',
         issueBody = issueBody ??
-            'Update \$name from \$currentVersion to \$latestVersion';
+            'Update \$name from \$currentVersion to \$latestVersion',
+        prefix = prefix ?? '',
+        _currentVersion = Version.parse(currentVersion.startsWith(prefix ?? '')
+            ? currentVersion.substring((prefix ?? '').length)
+            : currentVersion);
 
   /// The version of the installed/used dependency.
-  Version get currentVersion;
+  Version get currentVersion => _currentVersion;
 
   /// Get the latest version available.
   Future<Version> latestVersion();
@@ -35,9 +41,14 @@ abstract class GenericDependency {
 
   final String issueBody;
 
+  final String prefix;
+
+  Version _currentVersion;
+
   /// Format the version for printing
+  @override
   String printVersion(Version version) {
-    return version.toString();
+    return '$prefix${version.toString()}';
   }
 
   /// The name of the dependency.

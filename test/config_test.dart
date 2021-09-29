@@ -22,6 +22,7 @@ dependencies:
     repo: fischerscode/uptodate
     currentVersion: v1.2.3
     prefix: v
+    isTag: true
 ''';
     var config = Config.string(configString);
     test('Test web', () {
@@ -47,10 +48,11 @@ dependencies:
       expect(dependency.name, 'githubdependency');
       expect(dependency.currentVersion, Version(1, 2, 3));
       expect(dependency.repo, 'fischerscode/uptodate');
-      expect(dependency.url.toString(),
-          'https://api.github.com/repos/fischerscode/uptodate/releases/latest');
       expect(dependency.prefix, 'v');
-      expect(dependency.path, 'tag_name');
+      expect(dependency.path, 'name');
+
+      expect(dependency.isTag, TypeMatcher<bool>());
+      expect(dependency.isTag, true);
     });
   });
 }

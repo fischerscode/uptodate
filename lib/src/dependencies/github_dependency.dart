@@ -1,26 +1,29 @@
 part of dependencies;
 
-class GitHubDependency extends WebJsonDependency {
+class GitHubDependency extends GenericDependency {
   static const String identifier = 'github';
 
+  @override
+  final String name;
   final String repo;
+  final bool isTag;
+  final String path;
 
   GitHubDependency({
-    required String name,
+    required this.name,
     required String currentVersion,
     required this.repo,
     String? path,
     String? prefix,
     required String? issueTitle,
     required String? issueBody,
-  }) : super(
-          currentVersion: currentVersion,
-          name: name,
-          path: path ?? 'tag_name',
-          url: GitHubConstants.releaseUrl(repo),
-          prefix: prefix ?? '',
+    required this.isTag,
+  })   : path = path ?? (isTag ? 'name' : 'tag_name'),
+        super(
           issueTitle: issueTitle,
           issueBody: issueBody,
+          currentVersion: currentVersion,
+          prefix: prefix,
         );
 
   static GitHubDependency? parse({
@@ -33,6 +36,7 @@ class GitHubDependency extends WebJsonDependency {
     var repo = yaml.getMapValue('repo')?.asString();
     var path = yaml.getMapValue('path')?.asString();
     var prefix = yaml.getMapValue('prefix')?.asString();
+    var isTag = yaml.getMapValue('isTag')?.asBool() ?? false;
     if (repo != null) {
       return GitHubDependency(
         name: name,
@@ -42,7 +46,47 @@ class GitHubDependency extends WebJsonDependency {
         prefix: prefix ?? '',
         issueTitle: issueTitle,
         issueBody: issueBody,
+        isTag: isTag,
       );
+    }
+  }
+
+  @override
+  Version get currentVersion => _currentVersion;
+
+  @override
+  Future<Version> latestVersion({http.Client? client}) async {
+    var page = 1;
+    while (true) {
+      final response = await WebDependency._get(client: client)((isTag
+          ? GitHubConstants.tagUrl
+          : GitHubConstants.releaseUrl)(repo, page));
+      if (response.statusCode < 200 || response.statusCode >= 400) {
+        throw Exception('Invalid response: ${response.statusCode}');
+      } else {
+        var json = jsonDecode(response.body);
+        if (!(json is List)) {
+          throw Exception('Invalid response: ${response.body}');
+        }
+        if (json.isEmpty) {
+          throw Exception(
+              'No matching ${isTag ? 'tag' : 'release'} found for dependency $name!');
+        }
+
+        for (var item in json) {
+          var version = WebJsonDependency.jsonPathResolver(item, path);
+
+          if (item['prerelease'] == false && item['draft'] == false) {
+            if (RegExp('^$prefix'
+                    r'([\d.]+)(-([0-9A-Za-z\-.]+))?(\+([0-9A-Za-z\-.]+))?$')
+                .hasMatch(version)) {
+              return Version.parse(version.substring(prefix.length));
+            }
+          }
+        }
+      }
+
+      page++;
     }
   }
 }

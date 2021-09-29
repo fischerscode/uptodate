@@ -144,15 +144,18 @@ dependencies:
 ```
 ### GitHub dependency
 Uses a GitHub repository to receive the latest version.
-The version is gathered from the latest (non pre-)release.
+The version is gathered from the latest (non pre-)release (or tag) that has the right prefix.
 ```yaml
 dependencies:
   - name: gitdependency            # The name of the dependency. (required)
     type: github                   # The type of the dependency. (required)
     currentVersion: v1.2.3         # The current version of the dependency. (required)
     repo: 'fischerscode/uptodate'  # The repository. (required)
+    isTag: true                    # Wether the version is determined by the latest
+                                   # tag rather then release (defaults to false)
     path: tag_name                 # The path to the latest version. (defaults to tag_name)
     prefix: v                      # The prefix of the semantic versions. 
+                                   # Is set, releases/tags not matching the prefix are ignored.
                                    # (v1.2.3 instead of 1.2.3)
                                    # Defaults to ''
 ```

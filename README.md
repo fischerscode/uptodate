@@ -8,7 +8,7 @@ You can use Updater either as a [command line tool](#tagger-as-a-command-line-to
 
 # Content
 - [Content](#content)
-- [Updater V0.2 Action](#updater-v02-action)
+- [Updater V0.3 Action](#updater-v03-action)
   - [Usage](#usage)
 - [Tagger as a command line tool](#tagger-as-a-command-line-tool)
   - [Usage](#usage-1)
@@ -21,7 +21,7 @@ You can use Updater either as a [command line tool](#tagger-as-a-command-line-to
     - [GitHub dependency](#github-dependency)
     - [Helm dependency](#helm-dependency)
 
-# Updater V0.2 Action
+# Updater V0.3 Action
 This action helps you to keep your repository up to date, by creating issues as soon as your dependencies changed.
 
 ## Usage
@@ -40,7 +40,7 @@ jobs:
     steps:
       # You have to check out your repo first.
       - uses: actions/checkout@v2
-      - uses: fischerscode/uptodate@v0.2
+      - uses: fischerscode/uptodate@v0.3
         with:
           # The location of the config file.
           # Defaults to '.uptodate.yaml'

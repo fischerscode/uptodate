@@ -1,11 +1,17 @@
+## v0.3.0
+
+- GitHubDependency:
+  - added ability to reference tags
+  - :boom: Now instead of the latest release (or tag), the latest (non prerelease) matching the prefix is used.
+
 ## v0.2.1
 
 - fix helm
 
 ## v0.2.0
 
-- (breaking change) rename `git` dependency to `github`
-- (breaking change) rename `newestVersion` to `latestVersion`
+- :boom: rename `git` dependency to `github`
+- :boom: rename `newestVersion` to `latestVersion`
 - add [README](README.md)
 
 ## v0.1.1

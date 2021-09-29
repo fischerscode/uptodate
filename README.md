@@ -1,6 +1,7 @@
 [![CI](https://github.com/fischerscode/uptodate/actions/workflows/ci.yaml/badge.svg)](https://github.com/fischerscode/uptodate/actions/workflows/ci.yaml)
 [![](https://img.shields.io/github/v/release/fischerscode/uptodate)](https://github.com/fischerscode/uptodate/releases/latest)
 [![](https://img.shields.io/github/license/fischerscode/uptodate)](https://github.com/fischerscode/uptodate/blob/master/LICENSE)
+[![on release](https://github.com/fischerscode/uptodate/actions/workflows/release.yaml/badge.svg)](https://github.com/fischerscode/uptodate/actions/workflows/release.yaml)
 
 You can use Updater either as a [command line tool](#tagger-as-a-command-line-tool) or an [GitHub Action](#updater-v01-action)
 

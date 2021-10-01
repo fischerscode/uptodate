@@ -1,3 +1,7 @@
+## v0.3.3
+
+- fixed helm: dependency has not been checked
+
 ## v0.3.2
 
 - added verbose

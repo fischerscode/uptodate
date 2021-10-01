@@ -70,6 +70,15 @@ class Config {
                       issueTitle: issueTitle ?? defaultIssueTitle,
                       issueBody: issueBody ?? defaultIssueBody,
                     );
+
+                  case HelmDependency.identifier:
+                    return HelmDependency.parse(
+                      name: name,
+                      yaml: dependency,
+                      currentVersion: currentVersion,
+                      issueTitle: issueTitle ?? defaultIssueTitle,
+                      issueBody: issueBody ?? defaultIssueBody,
+                    );
                 }
               }
               return null;

@@ -23,6 +23,12 @@ dependencies:
     currentVersion: v1.2.3
     prefix: v
     isTag: true
+  - name: helmdependency
+    type: helm
+    currentVersion: 1.2.3
+    repo: 'https://example.com'
+    chart: chart
+    path: 'entries.chart.1.version'
 ''';
     var config = Config.string(configString);
     test('Test web', () {
@@ -53,6 +59,16 @@ dependencies:
 
       expect(dependency.isTag, TypeMatcher<bool>());
       expect(dependency.isTag, true);
+    });
+    test('Test helm', () {
+      expect(config.dependencies()[3], TypeMatcher<HelmDependency>());
+      var dependency = config.dependencies()[3] as HelmDependency;
+      expect(dependency.name, 'helmdependency');
+      expect(dependency.currentVersion, Version(1, 2, 3));
+      expect(dependency.repo, 'https://example.com');
+      expect(dependency.chart, 'chart');
+      expect(dependency.prefix, '');
+      expect(dependency.path, 'entries.chart.1.version');
     });
   });
 }

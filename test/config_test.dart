@@ -26,15 +26,15 @@ dependencies:
 ''';
     var config = Config.string(configString);
     test('Test web', () {
-      expect(config.dependencies[0], TypeMatcher<WebDependency>());
-      var dependency = config.dependencies[0] as WebDependency;
+      expect(config.dependencies()[0], TypeMatcher<WebDependency>());
+      var dependency = config.dependencies()[0] as WebDependency;
       expect(dependency.name, 'webdependency');
       expect(dependency.currentVersion, Version(1, 2, 3));
       expect(dependency.url.toString(), 'http://example.com');
     });
     test('Test webjson', () {
-      expect(config.dependencies[1], TypeMatcher<WebJsonDependency>());
-      var dependency = config.dependencies[1] as WebJsonDependency;
+      expect(config.dependencies()[1], TypeMatcher<WebJsonDependency>());
+      var dependency = config.dependencies()[1] as WebJsonDependency;
       expect(dependency.name, 'webjsondependency');
       expect(dependency.currentVersion, Version(1, 2, 3));
       expect(dependency.url.toString(),
@@ -43,8 +43,8 @@ dependencies:
       expect(dependency.path, 'args.version');
     });
     test('Test github', () {
-      expect(config.dependencies[2], TypeMatcher<GitHubDependency>());
-      var dependency = config.dependencies[2] as GitHubDependency;
+      expect(config.dependencies()[2], TypeMatcher<GitHubDependency>());
+      var dependency = config.dependencies()[2] as GitHubDependency;
       expect(dependency.name, 'githubdependency');
       expect(dependency.currentVersion, Version(1, 2, 3));
       expect(dependency.repo, 'fischerscode/uptodate');

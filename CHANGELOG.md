@@ -1,3 +1,8 @@
+## v0.3.2
+
+- added verbose
+- improve usage exceptions
+
 ## v0.3.1
 
 GitHubDependency: semantic prereleases are no longe selected.

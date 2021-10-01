@@ -18,7 +18,7 @@ class Config {
     return Config.string(await file.readAsString());
   }
 
-  List<GenericDependency> get dependencies {
+  List<GenericDependency> dependencies({bool? verbose}) {
     var defaultIssueTitle = config.getMapValue('defaultIssueTitle')?.asString();
     var defaultIssueBody = config.getMapValue('defaultIssueBody')?.asString();
     return config
@@ -33,6 +33,7 @@ class Config {
               var issueTitle = dependency.getMapValue('issueTitle')?.asString();
               var issueBody = dependency.getMapValue('issueBody')?.asString();
               if (type != null && name != null && currentVersion != null) {
+                print('read dependency $name');
                 switch (type) {
                   case WebDependency.identifier:
                     return WebDependency.parse(

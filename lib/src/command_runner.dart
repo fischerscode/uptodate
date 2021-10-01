@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:args/command_runner.dart';
 import 'package:uptodate/src/command/version.dart';
 
@@ -13,12 +15,20 @@ class UpToDateCommandRunner extends CommandRunner<int> {
     addCommand(CheckCommand());
     addCommand(GitHubCommand());
     addCommand(VersionCommand());
-    argParser.addOption(
-      'file',
-      abbr: 'f',
-      help: 'The config file.',
-      mandatory: true,
-    );
+    argParser
+      ..addOption(
+        'file',
+        abbr: 'f',
+        help: 'The config file.',
+        mandatory: true,
+      )
+      ..addFlag(
+        'verbose',
+        abbr: 'v',
+        help: 'Detailed output.',
+        defaultsTo: false,
+        negatable: true,
+      );
   }
 
   @override
@@ -26,7 +36,7 @@ class UpToDateCommandRunner extends CommandRunner<int> {
     try {
       return await super.run(args) ?? 0;
     } on UsageException catch (e) {
-      print(e);
+      stderr.writeln(e);
       return 1;
     }
   }

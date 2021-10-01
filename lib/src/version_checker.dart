@@ -7,9 +7,12 @@ class VersionChecker {
 
   VersionChecker(this.config);
 
-  Future<List<DependencyState>> checkVersions() async {
+  Future<List<DependencyState>> checkVersions({bool? verbose}) async {
     var states = <DependencyState>[];
-    for (var dependency in config.dependencies) {
+    for (var dependency in config.dependencies(verbose: verbose)) {
+      if (verbose ?? false) {
+        print('Checking ${dependency.name}');
+      }
       var latestVersion = await dependency.latestVersion();
       states.add(DependencyState(
         name: dependency.name,

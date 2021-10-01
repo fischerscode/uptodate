@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
+import 'package:version/version.dart';
 
 import '../config.dart';
 import '../version_checker.dart';
@@ -29,9 +30,14 @@ class CheckCommand extends Command<int> {
   Future<int> run() async {
     String file = globalResults?['file'];
     String? output = argResults?['output'];
+    bool? verbose = globalResults?['verbose'];
+
+    if (output == 'json' && (verbose ?? false)) {
+      usageException('--verbose and --output json are not compatible');
+    }
 
     var config = await Config.file(File(file));
-    var states = await VersionChecker(config).checkVersions();
+    var states = await VersionChecker(config).checkVersions(verbose: verbose);
     switch (output) {
       case 'json':
         print(

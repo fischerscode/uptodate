@@ -18,7 +18,7 @@ class GitHubDependency extends GenericDependency {
     required String? issueTitle,
     required String? issueBody,
     required this.isTag,
-  })   : path = path ?? (isTag ? 'name' : 'tag_name'),
+  })  : path = path ?? (isTag ? 'name' : 'tag_name'),
         super(
           issueTitle: issueTitle,
           issueBody: issueBody,

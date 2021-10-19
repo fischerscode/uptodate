@@ -23,7 +23,7 @@ abstract class GenericDependency {
     required String? issueBody,
     final String? prefix,
     required final String currentVersion,
-  })   : issueTitle = issueTitle ?? 'Update \$name to \$latestVersion',
+  })  : issueTitle = issueTitle ?? 'Update \$name to \$latestVersion',
         issueBody = issueBody ??
             'Update \$name from \$currentVersion to \$latestVersion',
         prefix = prefix ?? '',

@@ -1,3 +1,8 @@
+## v0.4.0
+
+- publish to pub.dev
+- add exports to `package:uptodate/uptodate.dart`
+
 ## v0.3.3
 
 - fixed helm: dependency has not been checked

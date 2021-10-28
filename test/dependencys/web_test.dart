@@ -15,6 +15,7 @@ void main() {
       url: Uri.parse('http://example.com'),
       issueTitle: '\$name: \$currentVersion -> \$latestVersion',
       issueBody: '\$name: \$currentVersion -> \$latestVersion',
+      issueLabels: [],
     );
     test('test Success', () async {
       final client = MockClient();

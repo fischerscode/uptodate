@@ -14,6 +14,7 @@ class WebJsonDependency extends WebDependency {
     required String? issueTitle,
     required String? issueBody,
     Version Function(http.Response)? versionExtractor,
+    required List<String> issueLabels,
   }) : super(
           name: name,
           currentVersion: currentVersion,
@@ -23,6 +24,7 @@ class WebJsonDependency extends WebDependency {
           issueTitle: issueTitle,
           issueBody: issueBody,
           prefix: prefix,
+          issueLabels: issueLabels,
         );
   static Version Function(http.Response response) jsonVersionExtractor(
       String path, String prefix) {
@@ -62,6 +64,7 @@ class WebJsonDependency extends WebDependency {
     required String currentVersion,
     required String? issueTitle,
     required String? issueBody,
+    required List<String> issueLabels,
   }) {
     var url = yaml.getMapValue('url')?.asString();
     var path = yaml.getMapValue('path')?.asString() ?? '';
@@ -75,6 +78,7 @@ class WebJsonDependency extends WebDependency {
         prefix: prefix ?? '',
         issueTitle: issueTitle,
         issueBody: issueBody,
+        issueLabels: issueLabels,
       );
     }
   }

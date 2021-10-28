@@ -12,6 +12,7 @@ class WebYamlDependency extends WebJsonDependency {
     required String? issueTitle,
     required String? issueBody,
     Version Function(http.Response)? versionExtractor,
+    required List<String> issueLabels,
   }) : super(
           name: name,
           currentVersion: currentVersion,
@@ -33,6 +34,7 @@ class WebYamlDependency extends WebJsonDependency {
                       request: response.request,
                     ),
                   ),
+          issueLabels: issueLabels,
         );
 
   static GenericDependency? parse({
@@ -41,6 +43,7 @@ class WebYamlDependency extends WebJsonDependency {
     required String currentVersion,
     required String? issueTitle,
     required String? issueBody,
+    required List<String> issueLabels,
   }) {
     var url = yaml.getMapValue('url')?.asString();
     var path = yaml.getMapValue('path')?.asString() ?? '';
@@ -54,6 +57,7 @@ class WebYamlDependency extends WebJsonDependency {
         prefix: prefix ?? '',
         issueTitle: issueTitle,
         issueBody: issueBody,
+        issueLabels: issueLabels,
       );
     }
   }

@@ -26,6 +26,7 @@ void main() {
       repo: 'fischerscode/api-test-repo',
       prefix: 'release-',
       isTag: false,
+      issueLabels: [],
     );
 
     var latestVersion = await dependency.latestVersion(client: client);
@@ -57,6 +58,7 @@ void main() {
       repo: 'fischerscode/api-test-repo',
       prefix: 'tag-',
       isTag: true,
+      issueLabels: [],
     );
 
     var latestVersion = await dependency.latestVersion(client: client);

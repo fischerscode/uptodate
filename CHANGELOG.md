@@ -1,3 +1,7 @@
+## v0.5.0
+
+- add issueLabels
+
 ## v0.4.0
 
 - publish to pub.dev

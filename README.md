@@ -86,6 +86,9 @@ dependencies:   # The unsorted list containing the dependencies.
   - name: testdependency        # The name of the dependency
     type: typ                   # The type of the dependency
     currentVersion: 1.2.3       # The current version of the dependency
+    issueLabels:                # The labels added to the issue
+      - dependencies
+      - test
 defaultIssueTitle: "Update $name to $latestVersion"     # The default issue title
 defaultIssueBody: "Update $name to $latestVersion"      # The default issue body
 ```

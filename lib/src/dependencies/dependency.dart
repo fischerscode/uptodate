@@ -23,6 +23,7 @@ abstract class GenericDependency {
     required String? issueBody,
     final String? prefix,
     required final String currentVersion,
+    required this.issueLabels,
   })  : issueTitle = issueTitle ?? 'Update \$name to \$latestVersion',
         issueBody = issueBody ??
             'Update \$name from \$currentVersion to \$latestVersion',
@@ -42,6 +43,8 @@ abstract class GenericDependency {
   final String issueBody;
 
   final String prefix;
+
+  final List<String> issueLabels;
 
   Version _currentVersion;
 

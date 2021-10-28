@@ -16,6 +16,7 @@ void main() {
       issueBody: '\$name: \$currentVersion -> \$latestVersion',
       repo: 'http://example.com/helmCharts/',
       chart: 'testchart',
+      issueLabels: [],
     );
 
     final client = MockClient();

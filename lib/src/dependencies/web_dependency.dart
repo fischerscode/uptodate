@@ -15,11 +15,13 @@ class WebDependency extends GenericDependency {
     required String? issueTitle,
     required String? issueBody,
     String? prefix,
+    required List<String> issueLabels,
   }) : super(
           issueTitle: issueTitle,
           issueBody: issueBody,
           currentVersion: currentVersion,
           prefix: prefix,
+          issueLabels: issueLabels,
         );
 
   static Version defaultVersionExtractor(http.Response response) =>
@@ -47,6 +49,7 @@ class WebDependency extends GenericDependency {
     required String currentVersion,
     required String? issueTitle,
     required String? issueBody,
+    required List<String> issueLabels,
   }) {
     var url = yaml.getMapValue('url')?.asString();
     if (url != null && Uri.tryParse(url) != null) {
@@ -56,6 +59,7 @@ class WebDependency extends GenericDependency {
         url: Uri.parse(url),
         issueTitle: issueTitle,
         issueBody: issueBody,
+        issueLabels: issueLabels,
       );
     }
   }

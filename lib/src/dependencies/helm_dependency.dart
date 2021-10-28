@@ -15,6 +15,7 @@ class HelmDependency extends WebYamlDependency {
     String? prefix,
     required String? issueTitle,
     required String? issueBody,
+    required List<String> issueLabels,
   }) : super(
           currentVersion: currentVersion,
           name: name,
@@ -23,6 +24,7 @@ class HelmDependency extends WebYamlDependency {
           prefix: prefix ?? '',
           issueTitle: issueTitle,
           issueBody: issueBody,
+          issueLabels: issueLabels,
         );
 
   static HelmDependency? parse({
@@ -31,6 +33,7 @@ class HelmDependency extends WebYamlDependency {
     required String currentVersion,
     required String? issueTitle,
     required String? issueBody,
+    required List<String> issueLabels,
   }) {
     var repo = yaml.getMapValue('repo')?.asString();
     var chart = yaml.getMapValue('chart')?.asString();
@@ -46,6 +49,7 @@ class HelmDependency extends WebYamlDependency {
         prefix: prefix ?? '',
         issueTitle: issueTitle,
         issueBody: issueBody,
+        issueLabels: issueLabels,
       );
     }
   }

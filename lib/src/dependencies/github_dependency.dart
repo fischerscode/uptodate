@@ -18,12 +18,14 @@ class GitHubDependency extends GenericDependency {
     required String? issueTitle,
     required String? issueBody,
     required this.isTag,
+    required List<String> issueLabels,
   })  : path = path ?? (isTag ? 'name' : 'tag_name'),
         super(
           issueTitle: issueTitle,
           issueBody: issueBody,
           currentVersion: currentVersion,
           prefix: prefix,
+          issueLabels: issueLabels,
         );
 
   static GitHubDependency? parse({
@@ -32,6 +34,7 @@ class GitHubDependency extends GenericDependency {
     required String currentVersion,
     required String? issueTitle,
     required String? issueBody,
+    required List<String> issueLabels,
   }) {
     var repo = yaml.getMapValue('repo')?.asString();
     var path = yaml.getMapValue('path')?.asString();
@@ -47,6 +50,7 @@ class GitHubDependency extends GenericDependency {
         issueTitle: issueTitle,
         issueBody: issueBody,
         isTag: isTag,
+        issueLabels: issueLabels,
       );
     }
   }

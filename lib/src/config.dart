@@ -32,6 +32,15 @@ class Config {
                   dependency.getMapValue('currentVersion')?.asString();
               var issueTitle = dependency.getMapValue('issueTitle')?.asString();
               var issueBody = dependency.getMapValue('issueBody')?.asString();
+              var issueLabels = dependency
+                      .getMapValue('issueLabels')
+                      ?.asList()
+                      ?.nodes
+                      .map((e) => e.asString())
+                      .where((element) => element != null)
+                      .map((e) => e!)
+                      .toList() ??
+                  [];
               if (type != null && name != null && currentVersion != null) {
                 print('read dependency $name');
                 switch (type) {
@@ -42,6 +51,7 @@ class Config {
                       currentVersion: currentVersion,
                       issueTitle: issueTitle ?? defaultIssueTitle,
                       issueBody: issueBody ?? defaultIssueBody,
+                      issueLabels: issueLabels,
                     );
 
                   case WebJsonDependency.identifier:
@@ -51,6 +61,7 @@ class Config {
                       currentVersion: currentVersion,
                       issueTitle: issueTitle ?? defaultIssueTitle,
                       issueBody: issueBody ?? defaultIssueBody,
+                      issueLabels: issueLabels,
                     );
 
                   case WebYamlDependency.identifier:
@@ -60,6 +71,7 @@ class Config {
                       currentVersion: currentVersion,
                       issueTitle: issueTitle ?? defaultIssueTitle,
                       issueBody: issueBody ?? defaultIssueBody,
+                      issueLabels: issueLabels,
                     );
 
                   case GitHubDependency.identifier:
@@ -69,6 +81,7 @@ class Config {
                       currentVersion: currentVersion,
                       issueTitle: issueTitle ?? defaultIssueTitle,
                       issueBody: issueBody ?? defaultIssueBody,
+                      issueLabels: issueLabels,
                     );
 
                   case HelmDependency.identifier:
@@ -78,6 +91,7 @@ class Config {
                       currentVersion: currentVersion,
                       issueTitle: issueTitle ?? defaultIssueTitle,
                       issueBody: issueBody ?? defaultIssueBody,
+                      issueLabels: issueLabels,
                     );
                 }
               }

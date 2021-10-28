@@ -54,9 +54,10 @@ class IssueController {
       headers: {
         'authorization': 'Bearer $token',
       },
-      body: jsonEncode(<String, String>{
+      body: jsonEncode(<String, dynamic>{
         'title': state.issueTitle,
         'body': state.issueBody,
+        'labels': state.issueLabels,
       }),
     );
     if (response.statusCode < 200 || response.statusCode >= 400) {

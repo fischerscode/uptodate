@@ -4,7 +4,7 @@ import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 import 'package:uptodate/src/dependencies/dependency.dart';
 import 'package:version/version.dart';
-import 'webJson_test.mocks.dart';
+import 'webjson_test.mocks.dart';
 
 @GenerateMocks([http.Client])
 void main() {
@@ -17,6 +17,7 @@ void main() {
       prefix: 'v',
       issueTitle: '\$name: \$currentVersion -> \$latestVersion',
       issueBody: '\$name: \$currentVersion -> \$latestVersion',
+      issueLabels: [],
     );
 
     final client = MockClient();

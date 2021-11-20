@@ -1,8 +1,4 @@
-## v0.5.0-rc2
-
-- fix file movements
-
-## v0.5.0-rc1
+## v0.5.0
 
 - add issueLabels
 

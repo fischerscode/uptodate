@@ -2,6 +2,7 @@
 
 - 💥 `WebYamlDependency` does not extend `WebJsonDependency` anymore, it has it's own `yamlPathResolver` now.
 - `webyaml` and `helm` dependencies should now be more robust and compute faster.
+- update dependencies
 
 ## v0.5.0
 

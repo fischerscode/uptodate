@@ -14,7 +14,7 @@ dependencies:
   yamltools: ^1.1.1
 
 dev_dependencies:
-  build_runner: ^2.1.2
+  build_runner: ^2.1.5
   mockito: ^5.0.16
   lints: ^1.0.1
-  test: ^1.17.12
+  test: ^1.19.3

@@ -1,6 +1,6 @@
 name: uptodate
 description: Keep your repo 'uptodate' by creating issues if a dependency updates.
-version: 0.6.0-rc1
+version: 0.6.0
 repository: https://github.com/fischerscode/uptodate
 
 environment:
@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   args: ^2.3.0
-  http: ^0.13.3
+  http: ^0.13.4
   version: ^2.0.0
   yaml: ^3.1.0
   yamltools: ^1.1.1

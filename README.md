@@ -8,7 +8,7 @@ You can use Updater either as a [command line tool](#tagger-as-a-command-line-to
 
 # Content
 - [Content](#content)
-- [Updater V0.3 Action](#updater-v03-action)
+- [Updater Action](#updater-action)
   - [Usage](#usage)
 - [Tagger as a command line tool](#tagger-as-a-command-line-tool)
   - [Usage](#usage-1)
@@ -21,7 +21,7 @@ You can use Updater either as a [command line tool](#tagger-as-a-command-line-to
     - [GitHub dependency](#github-dependency)
     - [Helm dependency](#helm-dependency)
 
-# Updater V0.3 Action
+# Updater Action
 This action helps you to keep your repository up to date, by creating issues as soon as your dependencies changed.
 
 ## Usage

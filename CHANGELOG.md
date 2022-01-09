@@ -1,3 +1,7 @@
+## v0.6.1
+
+- Fixed a bug where creating GitHub issues failed if an existing one had an empty body.
+
 ## v0.6.0
 
 - 💥 `WebYamlDependency` does not extend `WebJsonDependency` anymore, it has it's own `yamlPathResolver` now.

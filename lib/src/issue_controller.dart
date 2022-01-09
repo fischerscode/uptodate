@@ -72,7 +72,7 @@ class Issue {
   int? _number;
   String title;
   String state;
-  String body;
+  String? body;
   bool locked;
 
   Issue({

@@ -39,7 +39,7 @@ jobs:
     steps:
       # You have to check out your repo first.
       - uses: actions/checkout@v2
-      - uses: fischerscode/uptodate@v0.3
+      - uses: fischerscode/uptodate@v0.7
         with:
           # The location of the config file.
           # Defaults to '.uptodate.yaml'

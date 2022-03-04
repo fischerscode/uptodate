@@ -29,7 +29,7 @@ class WebJsonDependency extends WebDependency {
   static Version Function(http.Response response) jsonVersionExtractor(
       String path, String prefix) {
     return (http.Response response) {
-      var json = jsonDecode(response.body);
+      var json = jsonDecode(response.utf8Body);
 
       var version = jsonPathResolver(json, path);
       if (version.startsWith(prefix)) {

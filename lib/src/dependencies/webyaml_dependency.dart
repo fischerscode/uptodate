@@ -24,7 +24,7 @@ class WebYamlDependency extends WebDependency {
           issueBody: issueBody,
           versionExtractor: versionExtractor ??
               (response) {
-                var yaml = loadYaml(response.body);
+                var yaml = loadYaml(response.utf8Body);
 
                 var version = yamlPathResolver(yaml, path);
                 if (version.startsWith(prefix)) {

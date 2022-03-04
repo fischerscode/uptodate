@@ -1,3 +1,7 @@
+## v0.7.0
+
+- always use UTF-8 for yaml and json dependencies (helm and github are affected as well)
+
 ## v0.6.1
 
 - Fixed a bug where creating GitHub issues failed if an existing one had an empty body.

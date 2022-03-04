@@ -10,6 +10,7 @@ import 'package:yamltools/yamltools.dart';
 
 import '../github_consts.dart';
 import '../tools/substitute.dart';
+import '../tools/utf8response.dart';
 
 part 'web_dependency.dart';
 part 'webjson_dependency.dart';

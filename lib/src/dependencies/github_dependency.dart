@@ -71,9 +71,9 @@ class GitHubDependency extends GenericDependency {
       if (response.statusCode < 200 || response.statusCode >= 400) {
         throw Exception('Invalid response: ${response.statusCode}');
       } else {
-        var json = jsonDecode(response.body);
-        if (!(json is List)) {
-          throw Exception('Invalid response: ${response.body}');
+        var json = jsonDecode(response.utf8Body);
+        if (json is! List) {
+          throw Exception('Invalid response: ${response.utf8Body}');
         }
         if (json.isEmpty) {
           throw Exception(

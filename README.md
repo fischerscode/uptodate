@@ -101,13 +101,12 @@ Using `issueTitle` every dependency can be override `defaultIssueTitle`.
 Using `issueBody` every dependency can be override `defaultIssueBody`.
 
 ## Dependency types
-There are multiple dependency types.
-
-[Web dependency](#web-dependency)
-[Json web dependency](#json-web-dependency)
-[Yaml web dependency](#yaml-web-dependency)
-[GitHub dependency](#github-dependency)
-[Helm dependency](#helm-dependency)
+There are multiple dependency types:
+ - [Web dependency](#web-dependency)
+ - [Json web dependency](#json-web-dependency)
+ - [Yaml web dependency](#yaml-web-dependency)
+ - [GitHub dependency](#github-dependency)
+ - [Helm dependency](#helm-dependency)
 
 ### Web dependency
 An url gets called to receive the latest version of the dependency.

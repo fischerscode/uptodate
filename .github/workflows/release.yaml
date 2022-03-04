@@ -21,7 +21,7 @@ jobs:
             output-name: uptodate.windows.exe
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
       - run: dart pub get
       - run: dart test
@@ -40,7 +40,7 @@ jobs:
   tags:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: fischerscode/tagger@v0.1
         with:
           prefix: v

@@ -3,14 +3,14 @@
 [![](https://img.shields.io/github/license/fischerscode/uptodate)](https://github.com/fischerscode/uptodate/blob/master/LICENSE)
 [![on release](https://github.com/fischerscode/uptodate/actions/workflows/release.yaml/badge.svg)](https://github.com/fischerscode/uptodate/actions/workflows/release.yaml)
 
-You can use Updater either as a [command line tool](#tagger-as-a-command-line-tool) or an [GitHub Action](#updater-v01-action)
+You can use UpToDate either as a [command line tool](#uptodate-as-a-command-line-tool) or a [GitHub Action](#uptodate-action)
 
 
 # Content
 - [Content](#content)
-- [Updater Action](#updater-action)
+- [UpToDate Action](#uptodate-action)
   - [Usage](#usage)
-- [Tagger as a command line tool](#tagger-as-a-command-line-tool)
+- [UpToDate as a command line tool](#uptodate-as-a-command-line-tool)
   - [Usage](#usage-1)
 - [Configuration](#configuration)
   - [Config file](#config-file)
@@ -21,7 +21,7 @@ You can use Updater either as a [command line tool](#tagger-as-a-command-line-to
     - [GitHub dependency](#github-dependency)
     - [Helm dependency](#helm-dependency)
 
-# Updater Action
+# UpToDate Action
 This action helps you to keep your repository up to date, by creating issues as soon as your dependencies changed.
 
 ## Usage
@@ -55,9 +55,9 @@ jobs:
 ```
 2. Create the config file `.uptodate.yaml` ([Documentation](#configuration)).
 
-# Tagger as a command line tool
+# UpToDate as a command line tool
 
-Prebuilt executables can be found [here](https://github.com/fischerscode/tagger/releases/latest).
+Prebuilt executables can be found [here](https://github.com/fischerscode/uptodate/releases/latest).
 
 ## Usage
 ```

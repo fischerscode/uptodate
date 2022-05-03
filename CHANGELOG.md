@@ -1,3 +1,7 @@
+## v0.7.1
+
+- fix README
+
 ## v0.7.0
 
 - always use UTF-8 for yaml and json dependencies (helm and github are affected as well)

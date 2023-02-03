@@ -1,3 +1,8 @@
+## v0.8.0
+
+- add uptodate to executables
+- Update dependencies and fix linter warnings
+
 ## v0.7.1
 
 - fix README

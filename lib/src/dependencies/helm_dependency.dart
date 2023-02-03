@@ -52,5 +52,6 @@ class HelmDependency extends WebYamlDependency {
         issueLabels: issueLabels,
       );
     }
+    return null;
   }
 }

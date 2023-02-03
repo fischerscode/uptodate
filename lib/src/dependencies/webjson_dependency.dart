@@ -81,5 +81,6 @@ class WebJsonDependency extends WebDependency {
         issueLabels: issueLabels,
       );
     }
+    return null;
   }
 }

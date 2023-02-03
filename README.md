@@ -57,7 +57,11 @@ jobs:
 
 # UpToDate as a command line tool
 
-Prebuilt executables can be found [here](https://github.com/fischerscode/uptodate/releases/latest).
+`dart pub global activate uptodate`
+
+OR
+
+Use a  [prebuilt executable](https://github.com/fischerscode/uptodate/releases/latest).
 
 ## Usage
 ```
@@ -68,6 +72,7 @@ Usage: uptodate <command> [arguments]
 Global options:
 -h, --help                Print this usage information.
 -f, --file (mandatory)    The config file.
+-v, --[no-]verbose        Detailed output.
 
 Available commands:
   check     Check the dependencies in the config file for updates.

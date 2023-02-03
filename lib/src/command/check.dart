@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
-import 'package:version/version.dart';
 
 import '../config.dart';
 import '../version_checker.dart';

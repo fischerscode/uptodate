@@ -77,5 +77,6 @@ class WebYamlDependency extends WebDependency {
         issueLabels: issueLabels,
       );
     }
+    return null;
   }
 }

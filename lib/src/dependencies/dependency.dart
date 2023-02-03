@@ -4,7 +4,6 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:version/version.dart';
-import 'package:yaml/src/yaml_node.dart';
 import 'package:yaml/yaml.dart';
 import 'package:yamltools/yamltools.dart';
 
@@ -47,10 +46,9 @@ abstract class GenericDependency {
 
   final List<String> issueLabels;
 
-  Version _currentVersion;
+  final Version _currentVersion;
 
   /// Format the version for printing
-  @override
   String printVersion(Version version) {
     return '$prefix${version.toString()}';
   }

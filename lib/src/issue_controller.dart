@@ -69,7 +69,7 @@ class IssueController {
 }
 
 class Issue {
-  int? _number;
+  // int? _number;
   String title;
   String state;
   String? body;
@@ -81,7 +81,9 @@ class Issue {
     required this.state,
     required this.body,
     required this.locked,
-  }) : _number = number;
+  })
+  //  : _number = number
+  ;
 
   factory Issue.fromJsonObject(issue) {
     return Issue(

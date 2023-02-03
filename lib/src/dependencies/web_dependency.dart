@@ -62,5 +62,6 @@ class WebDependency extends GenericDependency {
         issueLabels: issueLabels,
       );
     }
+    return null;
   }
 }

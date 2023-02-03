@@ -53,6 +53,7 @@ class GitHubDependency extends GenericDependency {
         issueLabels: issueLabels,
       );
     }
+    return null;
   }
 
   @override

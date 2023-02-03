@@ -12,7 +12,7 @@ extension SubstitutableString on String {
         .replaceAll('$escapeCharacter$character',
             '$escapeCharacter$character$escapeCharacter')
         .replaceAll('$character$variable', value)
-        .replaceAll('$escapeCharacter$character$escapeCharacter', '$character')
-        .replaceAll('$escapeCharacter$escapeCharacter ', '$escapeCharacter');
+        .replaceAll('$escapeCharacter$character$escapeCharacter', character)
+        .replaceAll('$escapeCharacter$escapeCharacter ', escapeCharacter);
   }
 }
